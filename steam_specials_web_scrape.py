@@ -6,7 +6,7 @@
 #          I also like games and like to keep up with trends
 #          so I decided to web scrape the current top selling
 # 		   games on Steam, that way I can just run this Python
-# 		   script to keep up with the games.
+# 		   script to see what's trending.
 # 
 # Run Program: ./steam_specials_web_scrape.py
 
