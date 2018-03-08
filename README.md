@@ -1,5 +1,5 @@
 # SteamWebScraper
-This is a personal project I developed while learning Python. When executed, this Python script will extract data from Steam, which is a digital distribution platform developed by Valve Corporation. I use this data to display the top selling products and its information from the Steam market. The extracted data is then parsed and saved into a csv file for future references. 
+This is a personal project I developed while learning Python. When executed, this Python script will extract data from [Steam](http://store.steampowered.com/macos#p=0&tab=TopSellers), which is a digital distribution platform developed by Valve Corporation. I use this data from the Steam market to display the top selling games that support macOS, its tags (e.g Action, Strategy, Multiplayer), the current price of the game, and a link to the game provided by Steam. The extracted data is then parsed and saved into a csv file and can be viewed through many apps. My preference is Microsoft Excel or the Numbers spreadsheet app. 
 
 ## Getting Started
 Download the project to any directory and make sure you have the software neccessary to run this project.
