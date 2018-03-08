@@ -9,6 +9,13 @@
 # 		   script to see what's trending.
 # 
 # Run Program: ./steam_specials_web_scrape.py
+# Future ideas: 
+# 	- Keep track of more top sellers (just change the link in my_url to p=1
+# 	  or p=2 ...). Prompt the user if they would like to look at the next 20 best
+# 	  sellers, or just do the top 40 sellers instead of 20.
+# 	- Keep track of other sales
+# 	- Track additional information like the price before discount
+# 	  and the discount percentage
 
 # Import beautiful soup package that is up-to-date
 import bs4
@@ -49,7 +56,7 @@ f.write(headers)
 
 print("\nHere are Steam's top sellers for today:\n")
 
-# Iterate through all containers
+# Iterate through all containers and grab the information
 for container in containers:
 	# Retrive name of sale specials
 	name_container = container.findAll("div",{"class":"tab_item_name"})
@@ -70,13 +77,13 @@ for container in containers:
 
 	# Retrive link
 	item_link = container['href']
-
+	
 	print("Name: " + item_name)
 	print("Tags: " + item_tags)
 	print("Price: " + item_price)
 	print("Link: " + item_link)
 	print()
-
+	
 	# Notice that some product names contains commas, which is a delimiter in csv files.
 	# replace the commas with any other character
 	f.write(removeNonAscii(item_name) + "," + item_tags.replace(",","|") + "," + item_price + "," + item_link + "\n")
