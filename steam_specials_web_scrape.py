@@ -30,7 +30,7 @@ def removeNonAscii(s):
 	return "".join(filter(lambda x: ord(x)<128, s))
 
 # url to web scrape from
-my_url = "http://store.steampowered.com/macos#p=0&tab=NewReleases"
+my_url = "http://store.steampowered.com/macos#p=0&tab=TopSellers"
 
 # open web client - opens connection, grabs web page and downloads it
 uClient = uReq(my_url)
