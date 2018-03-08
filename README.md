@@ -17,7 +17,7 @@ Optional: Install the Sublime Text text editor
 
 * [Sublime Text](https://www.sublimetext.com/3) - Pretty neat text editor
 
-### Package Installation
+### Install dependencies
 Open the terminal and install the Python package Beautiful Soup with this command:
 
 ```
