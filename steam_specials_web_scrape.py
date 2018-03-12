@@ -81,7 +81,9 @@ for container in containers:
 		# If there is no discount, the original price is the same as the current price
 		original_price = item_price
 		discount_pct = '0%'
+		sale = False
 	else:
+		sale = True
 		# Get the original price
 		original_price = original_price_container[0].text
 		# Since there exists an original price, there must exist
@@ -92,11 +94,15 @@ for container in containers:
 	# Retrive link
 	item_link = container['href']
 	
+	# Print data - name, tags, discount percent, current price, original price.
+	# If there's no discount, no need to print it out
 	print("Name: " + item_name)
 	print("Tags: " + item_tags)
-	print("Discount percentage: " + discount_pct)
+	if(sale):
+		print("Discount percentage: " + discount_pct)
 	print("Current Price: " + item_price)
-	print("Original Price: " + original_price)
+	if(sale):
+		print("Original Price: " + original_price)
 	print("Link: " + item_link)
 	print()
 	
