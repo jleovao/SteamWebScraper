@@ -51,7 +51,7 @@ f = open(filename,"w")
 
 # Write the header in the first line of the file
 # csv files are deliminated by a newline
-headers = "ItemName, Tags, Price, Link\n"
+headers = "ItemName, Tags, DiscountPercentage, CurrentPrice, OriginalPrice, Link\n"
 f.write(headers)
 
 print("\nHere are Steam's top sellers for today:\n")
@@ -75,18 +75,36 @@ for container in containers:
 	price_container = container.findAll("div",{"class":"discount_final_price"})
 	item_price = price_container[0].text
 
+	# Get the original price (if available)
+	# If original price is available, there should be a discount_pct, so we keep track
+	# that as well.
+	original_price_container = container.findAll("div",{"class":"discount_original_price"})
+	if len(original_price_container) <= 0:
+		# If there is no discount, the original price is the same as the current price
+		original_price = item_price
+		discount_pct = '0%'
+	else:
+		# Get the original price
+		original_price = original_price_container[0].text
+		# Since there exists an original price, there must exist
+		# a discount percentage as well.
+		discount_pct_container = container.findAll("div",{"class":"discount_pct"})
+		discount_pct = discount_pct_container[0].text
+
 	# Retrive link
 	item_link = container['href']
 	
 	print("Name: " + item_name)
 	print("Tags: " + item_tags)
-	print("Price: " + item_price)
+	print("Discount percentage: " + discount_pct)
+	print("Current Price: " + item_price)
+	print("Original Price: " + original_price)
 	print("Link: " + item_link)
 	print()
 	
 	# Notice that some product names contains commas, which is a delimiter in csv files.
 	# replace the commas with any other character
-	f.write(removeNonAscii(item_name) + "," + item_tags.replace(",","|") + "," + item_price + "," + item_link + "\n")
+	f.write(removeNonAscii(item_name) + "," + item_tags.replace(",","|") + "," + discount_pct + "," +  item_price + "," + original_price + "," + item_link + "\n")
 
 f.close()
 
