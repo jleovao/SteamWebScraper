@@ -13,6 +13,7 @@
 # 	- Keep track of more top sellers (just change the link in my_url to p=1
 # 	  or p=2 ...). Prompt the user if they would like to look at the next 20 best
 # 	  sellers, or just do the top 40 sellers instead of 20.
+# 	- Just found out about bundle_base_discount, which are discounts for bundles
 
 # Import beautiful soup package that is up-to-date
 import bs4
