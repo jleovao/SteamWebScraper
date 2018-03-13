@@ -108,7 +108,13 @@ for container in containers:
 	
 	# Notice that some product names contains commas, which is a delimiter in csv files.
 	# replace the commas with any other character
-	f.write(removeNonAscii(item_name) + "," + item_tags.replace(",","|") + "," + discount_pct + "," +  item_price + "," + original_price + "," + item_link + "\n")
+	f.write(removeNonAscii(item_name) + "," +
+						   item_tags.replace(",","|") + "," +
+						   discount_pct + "," +
+						   item_price + "," +
+						   original_price + "," +
+						   item_link +
+						   "\n")
 
 f.close()
 
