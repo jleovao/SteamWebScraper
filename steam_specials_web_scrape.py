@@ -14,6 +14,7 @@
 # 	  or p=2 ...). Prompt the user if they would like to look at the next 20 best
 # 	  sellers, or just do the top 40 sellers instead of 20.
 # 	- Just found out about bundle_base_discount, which are discounts for bundles
+# 	  so I need to account for that.
 
 # Import beautiful soup package that is up-to-date
 import bs4
@@ -109,13 +110,12 @@ for container in containers:
 	# Notice that some product names contains commas, which is a delimiter in csv files.
 	# replace the commas with any other character
 	f.write(removeNonAscii(item_name) + "," +
-						   item_tags.replace(",","|") + "," +
-						   discount_pct + "," +
-						   item_price + "," +
-						   original_price + "," +
-						   item_link +
-						   "\n")
-
+		item_tags.replace(",","|") + "," +
+		discount_pct + "," +
+		item_price + "," +
+		original_price + "," +
+		item_link +
+		"\n")
 f.close()
 
 
