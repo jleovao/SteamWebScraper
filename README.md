@@ -23,6 +23,11 @@ Open the terminal and install the Python package Beautiful Soup with this comman
 ```
 pip install bs4
 ```
+For Windows users, try this if "pip install bs4" isn't working:
+
+```
+pip install BeautifulSoup4
+```
 
 Beautiful Soup is a Python package that parses HTML and XML documents and will enable us to web scrape.
 
